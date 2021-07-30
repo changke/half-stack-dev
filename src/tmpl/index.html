@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://border0.netlify.app/styles.min.css" as="style" />
+  <title>Half-Stack Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://border0.netlify.app/styles.min.css" />
+  <link rel="stylesheet" href="/assets/index.css" />
+  <!-- Web Components JS -->
+  <script type="module" src="/assets/wc/logo/logo.js"></script>
+  <script type="module" src="/assets/wc/title/title.js"></script>
+  <script type="module" src="/assets/wc/nav/nav.js"></script>
+  <script type="module" src="/assets/wc/archive/archive.js"></script>
+</head>
+<body>
+<header>
+  <hs-logo></hs-logo>
+  <hs-title text="Half-Stack Developer"></hs-title>
+  <hs-nav current="Home"></hs-nav>
+</header>
+<main>
+  <hs-archive url="/assets/archive.json"></hs-archive>
+</main>
+<footer>
+  <p>&copy; 2021 @changke</p>
+  <hs-nav current="home"></hs-nav>
+</footer>
+</body>
+</html>
