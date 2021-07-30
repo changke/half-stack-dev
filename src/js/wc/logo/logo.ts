@@ -14,6 +14,7 @@ export class Logo extends LitElement {
       height: 60px;
       border: 6px solid #39536d;
       border-top-style: dashed;
+      cursor: pointer;
     }
     .plate {
       height: 8px;
@@ -29,9 +30,27 @@ export class Logo extends LitElement {
     }
   `;
 
+  colors_ = ['red', 'green', 'blue', 'gray'];
+
+  bc_: BroadcastChannel;
+
+  constructor() {
+    super();
+    this.bc_ = new BroadcastChannel('central');
+  }
+
+  disconnectedCallback(): void {
+    super.disconnectedCallback();
+    this.bc_.close();
+  }
+
+  getColor_(): string {
+    return this.colors_[Math.floor(Math.random() * this.colors_.length)];
+  }
+
   render() {
     return html`
-      <div class="shelf">
+      <div class="shelf" @click="${this.onClick_}">
         <div class="plate ph"></div>
         <div class="plate ph"></div>
         <div class="plate ph"></div>
@@ -40,5 +59,12 @@ export class Logo extends LitElement {
         <div class="plate p3"></div>
       </div>
     `;
+  }
+
+  onClick_(): void {
+    const code = this.getColor_();
+    this.bc_.postMessage({
+      'logo:clicked': {colorCode: code}
+    });
   }
 }
