@@ -64,7 +64,7 @@ export class Logo extends LitElement {
   onClick_(): void {
     const code = this.getColor_();
     this.bc_.postMessage({
-      'logo:clicked': {colorCode: code}
+      'logo:clicked': {color: code}
     });
   }
 }

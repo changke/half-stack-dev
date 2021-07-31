@@ -32,10 +32,11 @@ export class Title extends LitElement {
   connectedCallback(): void {
     super.connectedCallback();
     this.bc_.onmessage = ev => {
-      const lc = ev.data['logo:clicked'];
-      if (lc) {
-        console.log(lc);
-        this.color_ = lc['colorCode'];
+      if (document.visibilityState === 'visible') {
+        const lc = ev.data['logo:clicked'];
+        if (lc) {
+          this.color_ = lc['color'];
+        }
       }
     };
   }
