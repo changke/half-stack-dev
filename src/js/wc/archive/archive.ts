@@ -5,8 +5,7 @@ import AjaxP from '../../services/ajaxp';
 interface PostArchiveItem {
   title: string;
   path: string;
-  createdAt: string;
-  updatedAt: string;
+  created: string;
 }
 
 @customElement('hs-archive')
@@ -47,7 +46,7 @@ export class Archive extends LitElement {
     this.postArchive_ = [];
   }
 
-  connectedCallback() {
+  connectedCallback(): void {
     super.connectedCallback();
 
     // get the list of posts...
@@ -56,8 +55,8 @@ export class Archive extends LitElement {
         this.postArchive_ = list;
         // sort by createdAt DESC
         this.postArchive_.sort((a, b) => {
-          const dateA = new Date(a.createdAt);
-          const dateB = new Date(b.createdAt);
+          const dateA = new Date(a.created);
+          const dateB = new Date(b.created);
           return (dateB > dateA) ? 1 : -1;
         });
         this.loaded_ = true; // trigger re-render!
@@ -72,7 +71,7 @@ export class Archive extends LitElement {
     return html`
       <li>
         <a href="${item.path}">${item.title}</a>
-        <time datetime="${item.createdAt}">${formatDateTime(item.createdAt)}</time>
+        <time datetime="${item.created}">${formatDateTime(item.created)}</time>
       </li>
     `;
   }

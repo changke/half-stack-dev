@@ -7,6 +7,7 @@ const through2 = require('through2');
 const Vinyl = require('vinyl');
 const esbuild = require('esbuild');
 const glob = require('glob');
+const rename = require('gulp-rename');
 
 const sourceRoot = 'src';
 const targetRoot = 'public';
@@ -83,6 +84,7 @@ const buildPosts = function() {
       cb(null, file);
     }))
     .pipe(template(`${sourceRoot}/tmpl/post.html`))
+    .pipe(rename(path => {path.basename = 'index'}))
     .pipe(dest(`${targetRoot}/posts/`));
 };
 
@@ -130,9 +132,8 @@ const buildArchive = function() {
         // extract file info as a JSON object
         const f = {
           title: getTitle_(file.contents.toString()),
-          path: file.path.replace(`${file.cwd}/${contentRoot}`, '').replace('index.md', ''),
-          createdAt: file.stat.birthtime,
-          updatedAt: file.stat.mtime
+          path: file.path.replace(`${file.cwd}/${contentRoot}`, '').replace(file.basename, ''),
+          created: new Date(file.basename.split('_')[0])
         };
         archive.push(f); // collect JSON
       }
