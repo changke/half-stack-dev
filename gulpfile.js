@@ -43,7 +43,7 @@ const buildIndexPage = function() {
  * Compile LESS file(s)
  * @returns {NodeJS.ReadWriteStream}
  */
-const buildCss = function() {
+const buildCSS = function() {
   return src([`${sourceRoot}/css/index.less`])
     .pipe(less())
     .pipe(dest(`${targetRoot}/assets/`));
@@ -148,6 +148,8 @@ const buildArchive = function() {
     .pipe(dest(`${targetRoot}/assets/`));
 };
 
+const buildMd = parallel(buildPosts, buildPages, buildArchive);
+
 /**
  * Uses esbuild to bundle lit components
  * @returns {Promise}
@@ -162,11 +164,26 @@ const buildLit = function() {
   });
 };
 
-const buildMd = parallel(buildPosts, buildPages, buildArchive);
+/**
+ * Uses esbuild to produce service worker file (with Workbox)
+ * @returns {Promise}
+ */
+ const buildSW = function() {
+  return esbuild.build({
+    entryPoints: [`${sourceRoot}/sw.js`],
+    bundle: true,
+    format: 'esm',
+    minify: true,
+    outfile: `${targetRoot}/sw.js`
+  });
+}
+
+const buildJS = parallel(buildLit, buildSW);
 
 exports.clean = clean;
-exports.styles = buildCss;
+exports.styles = buildCSS;
 exports.lit = buildLit;
+exports.sw = buildSW;
 exports.index = buildIndexPage;
 exports.markdowns = buildMd;
-exports.default = series(clean, parallel(copy, buildCss, buildIndexPage, buildMd, buildLit));
+exports.default = series(clean, parallel(copy, buildCSS, buildIndexPage, buildMd, buildJS));

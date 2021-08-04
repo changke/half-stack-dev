@@ -1,6 +1,6 @@
 {
   "name": "half-stack-dev",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "main": "",
   "scripts": {
@@ -29,6 +29,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "lit": "^2.0.0-rc.2"
+    "lit": "^2.0.0-rc.2",
+    "workbox-recipes": "^6.1.5"
   }
 }

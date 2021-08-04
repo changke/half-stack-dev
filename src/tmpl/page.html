@@ -31,5 +31,12 @@
   <p>&copy; 2021 @changke</p>
   <hs-nav current="about"></hs-nav>
 </footer>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
 </body>
 </html>
