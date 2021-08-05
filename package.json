@@ -16,7 +16,7 @@
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
     "del": "^6.0.0",
-    "esbuild": "^0.12.17",
+    "esbuild": "^0.12.18",
     "eslint": "^7.32.0",
     "glob": "^7.1.7",
     "gulp": "^4.0.2",
