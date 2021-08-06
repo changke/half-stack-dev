@@ -12,7 +12,6 @@ export class Nav extends LitElement {
     :host {
       contain: content;
     }
-
     ul,
     li {
       margin: 0;

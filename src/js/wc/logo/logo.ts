@@ -7,7 +7,6 @@ export class Logo extends LitElement {
     :host {
       contain: content;
     }
-
     .shelf {
       box-sizing: border-box;
       width: 60px;

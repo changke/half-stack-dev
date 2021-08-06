@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Service Worker via Workbox
+- Service Worker via [Workbox](https://developers.google.com/web/tools/workbox)
 
 ## 1.1.0
 
@@ -19,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Contain created date in filename of posts
+- Post will contain "created date" in filename
 
 ## 1.0.0
 

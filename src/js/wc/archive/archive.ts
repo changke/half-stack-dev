@@ -14,20 +14,17 @@ export class Archive extends LitElement {
     :host {
       contain: content;
     }
-
     ul,
     li {
       margin: 0;
       padding: 0;
     }
-
     li {
       list-style: none;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-
     li time {
       color: darkgray;
     }

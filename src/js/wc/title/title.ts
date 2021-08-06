@@ -7,7 +7,6 @@ export class Title extends LitElement {
     :host {
       contain: content;
     }
-
     span {
       font-weight: bold;
       font-size: 16px;
