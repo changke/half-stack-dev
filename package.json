@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "lit": "^2.0.0-rc.2",
-    "workbox-recipes": "^6.1.5"
+    "workbox-recipes": "^6.2.0"
   }
 }
