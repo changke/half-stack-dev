@@ -1,5 +1,7 @@
 # About
 
+Currently just dummy text...
+
 After a slow start, blogging rapidly gained in popularity. Blog usage spread during 1999 and the years following, being further popularized by the near-simultaneous arrival of the first hosted blog tools.
 
 In Russia, some political bloggers have started to challenge the dominance of official, overwhelmingly pro-government media. Bloggers such as Rustem Adagamov and Alexei Navalny have many followers and the latter's nickname for the ruling United Russia party as the "party of crooks and thieves" has been adopted by anti-regime protesters.
