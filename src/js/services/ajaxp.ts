@@ -62,10 +62,10 @@ class AjaxP {
     return `${url}${qs}`;
   }
 
-  getJSON<T>(url: string, data?: Record<string, string>): Promise<T> {
+  getJSON<T>(url: string, data?: Record<string, string>, opts?: RequestInit): Promise<T> {
     // check for existing querystring
     const fullUrl = this.buildFullUrl_(url, data);
-    return this.ajax_<T>(fullUrl, {});
+    return this.ajax_<T>(fullUrl, opts || {});
   }
 
   postJSON<T, U>(url: string, data: T, additionalHeaders: Record<string, string>): Promise<U> {
