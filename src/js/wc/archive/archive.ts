@@ -24,6 +24,7 @@ export class Archive extends LitElement {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      line-height: 2;
     }
     li time {
       color: darkgray;
